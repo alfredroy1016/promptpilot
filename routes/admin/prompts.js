@@ -30,6 +30,19 @@ const upload = multer({ storage: storage });
 router.get('/', isAdmin, promptController.getPrompts);
 router.get('/promptlist', promptController.getPromptslist);
 
+// In your admin routes file, e.g., routes/admin.js
+router.get('/prompts/promptlist', async (req, res) => {
+  try {
+    const prompts = await Prompt.find().sort({ createdAt: -1 });
+    res.render('admin/promptlist', { prompts });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Failed to load prompt list');
+  }
+});
+
+
+
 router.post('/upload-prompt', upload.single('file'), promptController.uploadPrompt);
 router.post('/upload-prompt', upload.single('file'), promptController.uploadPrompt);
 
