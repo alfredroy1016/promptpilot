@@ -1,7 +1,7 @@
 
 const express = require('express');
 const session = require('express-session');
-const dotenv = require('dotenv');
+
 const path = require('path');
 const connectDB = require('./config/db');
 const passport = require('passport');
@@ -16,7 +16,7 @@ const cookieParser = require('cookie-parser');
 
 
 // Load environment variables
-dotenv.config();
+require('dotenv').config()
 
 // Init Express app
 const app = express();
