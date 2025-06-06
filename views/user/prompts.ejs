@@ -913,12 +913,12 @@
         <h3 class="prompt-title"><%= prompt.title || 'Untitled Prompt' %></h3>
         
         <div class="prompt-info">
-          <span>📅 <%= new Date(prompt.createdAt).toLocaleDateString() %></span>
+        
           <span>📁 <%= prompt.file ? 'File Included' : 'No File' %></span>
         </div>
 
         <div class="prompt-info">
-          <span>💵 ₹<%= prompt.price ? prompt.price.toFixed(2) : "0.00" %></span>
+          <span>💵 $<%= prompt.price ? prompt.price.toFixed(2) : "0.00" %></span>
           <span>Use Case: <%= prompt.useCase || 'General' %></span>
         </div>
 

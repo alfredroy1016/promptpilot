@@ -6,7 +6,8 @@ const { client } = require('../../config/paypal');
 const checkoutNodeJssdk = require('@paypal/checkout-server-sdk');
 const Prompt = require('../../models/Prompt');
 const Razorpay = require('razorpay');
-require('dotenv').config(); // ✅ Load .env FIRST
+
+require('dotenv').config();
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) return next();
@@ -94,9 +95,11 @@ router.get('/payment-success', async (req, res) => {
 
 
 
+
+
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_SECRET
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
 

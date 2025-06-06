@@ -89,6 +89,9 @@ app.use('/', pageRoutes);
 
 app.get('/', (req, res) => res.render('user/index'));
 console.log('🔑 Razorpay ID:', process.env.RAZORPAY_KEY_ID);
+console.log('Razorpay Key ID:', process.env.RAZORPAY_KEY_ID);
+console.log('Razorpay Key Secret:', process.env.RAZORPAY_KEY_SECRET);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
