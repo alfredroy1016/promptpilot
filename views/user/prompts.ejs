@@ -218,7 +218,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
+ 
         .prompt-info span {
             display: flex;
             align-items: center;
@@ -898,78 +898,86 @@
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/prompts" class="active">Explore Prompts</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="#">Login</a></li>
+       
       </ul>
     </nav>
   </header>
-<main class="container">
-  <h1 class="page-title">Discover AI Prompts</h1>
-  <p class="page-subtitle">Browse curated, high-quality prompts for content, business, design, and more.</p>
 
-  <div class="prompts-grid">
-    <% prompts.forEach(prompt => { %>
-      <div class="prompt-card">
-        <h3 class="prompt-title"><%= prompt.title || 'Untitled Prompt' %></h3>
+  <main class="container">
+    <h1 class="page-title">Discover AI Prompts</h1>
+    <p class="page-subtitle">Browse curated, high-quality prompts for content, business, design, and more.</p>
+
+    <div class="prompts-grid">
+
         
-        <div class="prompt-info">
+  <% prompts.forEach(prompt => { %>
+    <div class="prompt-card">
+      <div class="card-top">
+        <span class="category-tag"><%= prompt.category %></span>
+        <% if (prompt.tags && prompt.tags.includes('popular')) { %>
+          <!-- <span class="status-badge">⭐ Popular</span> -->
+        <% } %>   
+      </div>
+      <h3 class="prompt-title"><%= prompt.title %></h3>
+      <p class="prompt-desc"><%= prompt.description %></p>
+      <div class="prompt-preview"><%= prompt.content.substring(0, 120) %>...</div>
+      <div class="prompt-info">
+        <!-- <span>📅 <%= new Date(prompt.createdAt).toLocaleDateString() %></span> -->
+      
+        <!-- <span>📁 <%= prompt.file ? 'File Included' : 'Text Only' %></span> -->
+      </div>
+      <div class="prompt-actions">
         
-          <span>📁 <%= prompt.file ? 'File Included' : 'No File' %></span>
-        </div>
+       <a href="/buy/<%= prompt._id %>" class="btn btn-buy">Buy Now</a>
 
-        <div class="prompt-info">
-          <span>💵 $<%= prompt.price ? prompt.price.toFixed(2) : "0.00" %></span>
-          <span>Use Case: <%= prompt.useCase || 'General' %></span>
-        </div>
+       <a href="/prompts/<%= prompt._id %>" class="btn btn-price">
+  💵 $<%= prompt.price ? prompt.price.toFixed(2) : "0.00" %>
+</a>
 
-        <div class="prompt-info">
-          <span>Difficulty: <%= prompt.difficulty || 'N/A' %></span>
-        </div>
 
-        <div class="prompt-actions">
-          <a href="/buy/<%= prompt._id %>" class="btn btn-buy">Buy Now</a>
-          <a href="/prompts/<%= prompt._id %>" class="btn btn-price">💵 View</a>
-        </div>
-      </div>
-    <% }) %>
-  </div>
-
-  <section class="shop-section">
-    <h2>Explore Premium Prompts</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-image">
-          <i class="fas fa-brain"></i>
-        </div>
-        <h3>AI Business Toolkit</h3>
-        <p>Boost your productivity with ready-to-use AI prompts for business.</p>
-        <div class="price">$9.99</div>
-        <a href="#" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <i class="fas fa-pen-nib"></i>
-        </div>
-        <h3>Copywriting Pack</h3>
-        <p>Write captivating ad copies and sales content effortlessly.</p>
-        <div class="price">$9.99</div>
-        <a href="#" class="buy-button">Buy Now</a>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <i class="fas fa-palette"></i>
-        </div>
-        <h3>Design Prompt Pack</h3>
-        <p>Get inspired with prompts for logos, illustrations, and more.</p>
-        <div class="price">$9.99</div>
-        <a href="#" class="buy-button">Buy Now</a>
       </div>
     </div>
-  </section>
-</main>
+  <% }) %>
+</div>
 
+ 
+    </div>
+
+    <section class="shop-section">
+      <h2>Explore Premium Prompts</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>AI Business Toolkit</h3>
+          <p>Boost your productivity with ready-to-use AI prompts for business.</p>
+          <div class="price">$9.99</div>
+          <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-image">
+            <i class="fas fa-pen-nib"></i>
+          </div>
+          <h3>Copywriting Pack</h3>
+          <p>Write captivating ad copies and sales content effortlessly.</p>
+          <div class="price">$9.99</div>
+          <a href="#" class="buy-button">Buy Now</a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Design Prompt Pack</h3>
+          <p>Get inspired with prompts for logos, illustrations, and more.</p>
+          <div class="price">$9.99</div>
+          <a href="#" class="buy-button">Buy Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
     // Add smooth scroll animations

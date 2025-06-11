@@ -22,4 +22,8 @@ router.get('/privacy', (req, res) => {
 router.get('/help',(req,res)=>{
   res.render('user/help');
 })
+
+router.get('/refund',(req,res)=>{
+  res.render('user/refund')
+})
 module.exports = router;

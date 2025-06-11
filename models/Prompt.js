@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const PromptSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  difficulty: { type: String, required: true },
+  difficulty: { type: String, required: false },
   useCase: { type: String, required: true },
   content: { type: String, required: false },
   file: { type: String, default: null },
@@ -12,3 +12,5 @@ const PromptSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Prompt', PromptSchema);
+
+
