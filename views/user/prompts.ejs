@@ -913,10 +913,8 @@
   <% prompts.forEach(prompt => { %>
     <div class="prompt-card">
       <div class="card-top">
-        <span class="category-tag"><%= prompt.category %></span>
-        <% if (prompt.tags && prompt.tags.includes('popular')) { %>
-          <!-- <span class="status-badge">⭐ Popular</span> -->
-        <% } %>   
+        
+        
       </div>
       <h3 class="prompt-title"><%= prompt.title %></h3>
       <p class="prompt-desc"><%= prompt.description %></p>
